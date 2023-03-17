@@ -11,8 +11,8 @@ func Run() {
 
 	router := gin.Default()
 
-	router.StaticFS("swagger", http.Dir("swagger"))
-	router.LoadHTMLGlob("swagger/html/*")
+	router.StaticFS("./swagger", http.Dir("swagger"))
+	router.LoadHTMLGlob("./swagger/html/*")
 
 	router.GET("/swagger", func(context *gin.Context) {
 		context.HTML(http.StatusOK, "swagger.html", gin.H{
