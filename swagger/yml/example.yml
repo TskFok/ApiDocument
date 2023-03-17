@@ -1,0 +1,143 @@
+swagger: '2.0'
+info:
+  title: 接口文档
+  description: 接口文档
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 1.0.0
+schemes:
+  - http
+  - https
+paths:
+  /test:
+    get:
+      tags:
+        - 测试
+      summary: 测试get
+      parameters:
+        - name: test
+          type: string
+          description: 测试字段
+          required: false
+          in: query
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+    post:
+      tags:
+        - 测试
+      summary: 测试post
+      parameters:
+        - name: test
+          type: string
+          description: 测试字段
+          required: false
+          in: formData
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+    put:
+      tags:
+        - 测试
+      summary: 测试put
+      parameters:
+        - name: test
+          type: string
+          description: 测试字段
+          required: true
+          in: path
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+    delete:
+      tags:
+        - 测试
+      summary: 测试delete
+      parameters:
+        - name: test
+          type: string
+          description: 测试字段
+          required: true
+          in: path
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+    head:
+      tags:
+        - 测试
+      summary: 测试head
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+    options:
+      tags:
+        - 测试
+      summary: 测试head
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+    patch:
+      tags:
+        - 测试
+      summary: 测试head
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+definitions:
+  ApiResponse:
+    title: 接口返回对象
+    description: 接口返回对象
+    properties:
+      err_code:
+        $ref: '#/definitions/errCode'
+      err_msg:
+        $ref: '#/definitions/errMsg'
+      payload:
+        $ref: '#/definitions/payload'
+    type: object
+  errCode:
+    type: integer
+    description: errCode
+    example: 0
+  errMsg:
+    type: string
+    description: errMsg
+    example: "成功"
+  payload:
+    type: array
+    description: 内容
+    example: [ ]
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: Authorization
+    in: header

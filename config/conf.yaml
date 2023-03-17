@@ -1,0 +1,5 @@
+swagger:
+  - name: test
+    url: swagger/yml/example.yml
+  - name: test2
+    url: swagger/yml/example.yml
