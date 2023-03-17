@@ -2,4 +2,4 @@ swagger:
   - name: test
     url: swagger/yml/example.yml
   - name: test2
-    url: swagger/yml/example.yml
+    url: swagger/yml/example2.yml

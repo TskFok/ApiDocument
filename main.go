@@ -1,4 +1,4 @@
-package apiSwagger
+package main
 
 import (
 	"github.com/TskFok/apiSwagger/config"
@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func Run() {
+func main() {
 	config.InitConfig()
 
 	router := gin.Default()
@@ -20,5 +20,5 @@ func Run() {
 		})
 	})
 
-	router.Run(":8011")
+	_ = router.Run(":8011")
 }
