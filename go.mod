@@ -1,4 +1,4 @@
-module github.com/TskFok/apiSwagger
+module github.com/TskFok/ApiDocument
 
 go 1.20
 

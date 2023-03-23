@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/TskFok/apiSwagger/config"
+	"github.com/TskFok/ApiDocument/config"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
