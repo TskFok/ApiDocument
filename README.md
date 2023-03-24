@@ -16,4 +16,13 @@ go run main.go
 访问http://127.0.0.1:8011/swagger
 
 build见makefile
+
+守护进程:
+go run main.go bg
+
+关闭守护进程:
+kill -2 pid
+
+进程日志:
+swagger.log
 ``````
