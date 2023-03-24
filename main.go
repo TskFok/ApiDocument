@@ -25,7 +25,12 @@ var HtmlFs embed.FS
 var SwaggerFs embed.FS
 
 func main() {
-	process.InitProcess()
+	//守护进程
+	args := os.Args
+
+	if len(args) != 1 && args[1] == "bg" {
+		process.InitProcess()
+	}
 
 	config.InitConfig()
 
