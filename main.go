@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	"fmt"
+	"github.com/TskFok/ApiDocument/app/process"
 	"github.com/TskFok/ApiDocument/config"
 	"github.com/TskFok/ApiDocument/router"
 	"github.com/gin-gonic/gin"
@@ -18,6 +19,8 @@ var HtmlFs embed.FS
 var SwaggerFs embed.FS
 
 func main() {
+	process.InitProcess()
+
 	config.InitConfig()
 
 	gin.SetMode(gin.ReleaseMode)
