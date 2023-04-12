@@ -10,16 +10,33 @@ schemes:
   - http
   - https
 paths:
-  /test:
+  /ws/gpt/chat-*:
     get:
       tags:
-        - 测试
-      summary: 测试get
+        - openai
+      summary: wss传输接口
+      responses:
+        '200':
+          description: '[SUCCESS]获取成功'
+          schema:
+            $ref: '#/definitions/ApiResponse'
+      security:
+        - api_key: [ ]
+  /stream:
+    get:
+      tags:
+        - openai
+      summary: sse传输接口
       parameters:
-        - name: test
+        - name: question
+          required: true
           type: string
-          description: 测试字段
-          required: false
+          description: 提问
+          in: query
+        - name: key
+          required: true
+          type: string
+          description: openai的token
           in: query
       responses:
         '200':
@@ -28,83 +45,22 @@ paths:
             $ref: '#/definitions/ApiResponse'
       security:
         - api_key: [ ]
+  /image:
     post:
       tags:
-        - 测试
-      summary: 测试post
+        - openai
+      summary: 绘图接口
       parameters:
-        - name: test
+        - name: question
+          required: true
           type: string
-          description: 测试字段
-          required: false
+          description: 提问
           in: formData
-      responses:
-        '200':
-          description: '[SUCCESS]获取成功'
-          schema:
-            $ref: '#/definitions/ApiResponse'
-      security:
-        - api_key: [ ]
-    put:
-      tags:
-        - 测试
-      summary: 测试put
-      parameters:
-        - name: test
-          type: string
-          description: 测试字段
+        - name: key
           required: true
-          in: path
-      responses:
-        '200':
-          description: '[SUCCESS]获取成功'
-          schema:
-            $ref: '#/definitions/ApiResponse'
-      security:
-        - api_key: [ ]
-    delete:
-      tags:
-        - 测试
-      summary: 测试delete
-      parameters:
-        - name: test
           type: string
-          description: 测试字段
-          required: true
-          in: path
-      responses:
-        '200':
-          description: '[SUCCESS]获取成功'
-          schema:
-            $ref: '#/definitions/ApiResponse'
-      security:
-        - api_key: [ ]
-    head:
-      tags:
-        - 测试
-      summary: 测试head
-      responses:
-        '200':
-          description: '[SUCCESS]获取成功'
-          schema:
-            $ref: '#/definitions/ApiResponse'
-      security:
-        - api_key: [ ]
-    options:
-      tags:
-        - 测试
-      summary: 测试head
-      responses:
-        '200':
-          description: '[SUCCESS]获取成功'
-          schema:
-            $ref: '#/definitions/ApiResponse'
-      security:
-        - api_key: [ ]
-    patch:
-      tags:
-        - 测试
-      summary: 测试head
+          description: openai的token
+          in: query
       responses:
         '200':
           description: '[SUCCESS]获取成功'
@@ -113,6 +69,17 @@ paths:
       security:
         - api_key: [ ]
 definitions:
+  ImageResponse:
+    title: 图片返回对象
+    description: 图片返回对象
+    type: array
+    items:
+      properties:
+        url:
+          description: 地址
+          example: https://oaidalleapiprodscus.blob.core.windows.net/private/org-fbwizmwiG
+          type: string
+      type: object
   ApiResponse:
     title: 接口返回对象
     description: 接口返回对象
