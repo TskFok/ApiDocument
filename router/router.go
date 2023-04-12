@@ -7,7 +7,7 @@ import (
 )
 
 func InitRouter(Handle *gin.Engine) {
-	Handle.GET("/swagger", func(context *gin.Context) {
+	Handle.GET("/", func(context *gin.Context) {
 		context.HTML(http.StatusOK, "swagger.html", gin.H{
 			"list": config.GetSwaggerMap(),
 		})
